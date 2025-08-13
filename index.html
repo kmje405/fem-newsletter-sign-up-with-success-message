@@ -20,7 +20,7 @@
   </head>
   <body>
     <!-- Sign-up form start -->
-    <!-- <main>
+    <main>
       <section class="newsletter" aria-labelledby="newsletter-title">
         <div class="newsletter__media"></div>
 
@@ -39,7 +39,12 @@
             </ul>
           </header>
 
-          <form class="newsletter__form" action="/subscribe" method="post">
+          <form
+            class="newsletter__form"
+            action="/subscribe"
+            method="post"
+            novalidate
+          >
             <div class="form-field">
               <label for="email" class="form-field__label t-preset-3"
                 >Email address</label
@@ -52,7 +57,7 @@
                 placeholder="you@company.com"
                 autocomplete="email"
                 inputmode="email"
-                required
+                novalidate
                 aria-describedby="email-error"
               />
               <p
@@ -71,7 +76,7 @@
           </form>
         </div>
       </section>
-    </main> -->
+    </main>
 
     <!-- Sign-up form end -->
 

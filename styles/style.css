@@ -131,6 +131,33 @@
     padding-bottom: 1.5rem;
   }
 
+  .form-field__input {
+    border: 1px solid hsl(231 7% 60%);
+    border-radius: var(--r-md);
+    padding: 1rem;
+    font-size: var(--fs-body);
+    transition: border-color 0.2s ease;
+  }
+
+  .form-field__input:focus {
+    outline: none;
+    border-color: var(--c-blue-800);
+  }
+
+  .form-field__error {
+    color: var(--c-red);
+    font-size: var(--fs-small);
+    font-weight: var(--weight-bold);
+    margin-top: 0.5rem;
+  }
+
+  .form-field__label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
   .newsletter {
     justify-self: center;
     background-color: var(--c-white);
@@ -220,7 +247,7 @@
 
     /* Success message styles */
     .success__wrapper {
-      display: block; /* Temporarily visible for testing */
+      display: none; /* Initially hidden */
       position: fixed;
       top: 0;
       left: 0;
