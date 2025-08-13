@@ -1,0 +1,273 @@
+/* ============== FONTS ============== */
+/* Use ONE family name with proper weights (not separate families) */
+@font-face {
+  font-family: "Roboto";
+  src: url("/assets/fonts/Roboto-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/assets/fonts/Roboto-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* ============== TOKENS ============== */
+@layer tokens {
+  :root {
+    /* Colors */
+    --c-white: hsl(0 0% 100%);
+    --c-blue-800: hsl(234 29% 20%);
+    --c-blue-700: hsl(235 18% 26%);
+    --c-red: hsl(4 100% 67%);
+
+    /* Gradient (tokenized as a full paint) */
+    --gradient-primary: linear-gradient(
+      90deg,
+      hsl(15 100% 61%),
+      hsl(346 100% 66%)
+    );
+
+    /* Typography core */
+    --font-sans: "Roboto", system-ui, -apple-system, "Segoe UI", Arial,
+      sans-serif;
+    --weight-regular: 400;
+    --weight-bold: 700;
+
+    /* Sizes (rems) from the comp */
+    --fs-56: 3.5rem; /* 56px */
+    --fs-40: 2.5rem; /* 40px */
+    --fs-16: 1rem; /* 16px */
+    --fs-12: 0.75rem; /* 12px */
+
+    /* Line height + letterspacing */
+    --lh-100: 1; /* 100% */
+    --lh-150: 1.5; /* 150% */
+    --ls-0: 0;
+
+    /* Semantic size aliases */
+    --fs-display-desktop: var(--fs-56);
+    --fs-display-mobile: var(--fs-40);
+    --fs-body: var(--fs-16);
+    --fs-small: var(--fs-12);
+
+    /* Optional “current” display size (updated via media queries below) */
+    --fs-display-current: var(--fs-display-desktop);
+
+    /* Radius/shadow tokens */
+    --r-md: 0.5rem;
+    --shadow-1: 0 6px 16px hsl(234 29% 20% / 0.15);
+  }
+
+  /* Update the “current” display size responsively */
+  @media (max-width: 48rem) {
+    :root {
+      --fs-display-current: var(--fs-display-mobile);
+    }
+  }
+
+  /* ============== GLOBAL BASES ============== */
+  @layer global {
+    body {
+      font-family: var(--font-sans);
+      text-rendering: optimizeLegibility;
+      background-color: var(--c-blue-700);
+    }
+  }
+
+  @layer components {
+    /* Text Preset 1 (Display): Bold, 100% LH, 0 tracking, responsive size */
+    .t-preset-1 {
+      font-weight: var(--weight-bold);
+      font-size: var(--fs-display-current);
+      line-height: var(--lh-100);
+      letter-spacing: var(--ls-0);
+      color: var(--c-blue-800);
+    }
+
+    /* Text Preset 2 (Body) — Bold */
+    .t-preset-2--bold {
+      font-weight: var(--weight-bold);
+      font-size: var(--fs-body);
+      line-height: var(--lh-150);
+      letter-spacing: var(--ls-0);
+    }
+
+    /* Text Preset 2 (Body) — Regular */
+    .t-preset-2--regular {
+      font-weight: var(--weight-regular);
+      font-size: var(--fs-body);
+      line-height: var(--lh-150);
+      letter-spacing: var(--ls-0);
+    }
+
+    /* Text Preset 3 (Small) — Bold, 100% LH */
+    .t-preset-3 {
+      font-weight: var(--weight-bold);
+      font-size: var(--fs-small);
+      line-height: var(--lh-100);
+      letter-spacing: var(--ls-0);
+    }
+  }
+
+  body {
+    display: flex;
+    color: var(--c-blue-800);
+    min-height: 100vh;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+  }
+  input {
+    display: block;
+    justify-self: center;
+    width: 100%;
+    padding: 0.5rem;
+  }
+  .form-field {
+    padding-bottom: 1.5rem;
+  }
+
+  .newsletter {
+    justify-self: center;
+    background-color: var(--c-white);
+    max-width: calc(375 / 16 * 1rem);
+  }
+
+  .newsletter__header {
+    padding-block: 2.5rem;
+  }
+
+  .newsletter__media-image {
+    min-width: 100%;
+    max-height: calc(284 / 16 * 1rem);
+    object-fit: cover;
+  }
+
+  .newsletter__header,
+  .newsletter__form {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 1.5rem;
+  }
+  .newsletter__form {
+    padding-bottom: 2.5rem;
+  }
+
+  .form-field__label {
+  }
+  .newsletter__cta {
+    padding-block: 1.5rem;
+  }
+  .newsletter__button {
+    padding: 1rem 3rem;
+    text-wrap: nowrap;
+    border-radius: 0.5rem;
+    border: none;
+    color: var(--c-white);
+    background-color: var(--c-blue-800);
+    font-weight: 700 !important;
+  }
+
+  /* ============== LIST COMPONENTS ============== */
+  @layer components {
+    /* Custom list with icon markers */
+    .newsletter__benefits {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+    }
+
+    .newsletter__benefits li {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .newsletter__benefits li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.125rem; /* Fine-tune vertical alignment */
+      width: 1.25rem;
+      height: 1.25rem;
+      background-image: url("/assets/images/icon-list.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .newsletter__benefits li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Hide HTML img element, use background images instead */
+    .newsletter__media-image {
+      display: none;
+    }
+
+    /* Mobile background image */
+    .newsletter__media {
+      position: relative;
+      min-height: 284px;
+      background-image: url("/assets/images/illustration-sign-up-mobile.svg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  /* ============== RESPONSIVE BREAKPOINTS ============== */
+  @layer responsive {
+    /* Tablet breakpoint: 768px - 1023px */
+    @media (min-width: 48rem) and (max-width: 63.9375rem) {
+      .newsletter {
+        min-width: calc(608 / 16 * 1rem);
+        margin-top: 4.5rem;
+        padding: 1rem;
+        border-radius: 2rem;
+        background: var(--c-white);
+        box-shadow: var(--shadow-1);
+      }
+
+      .newsletter__media {
+        background-image: url("/assets/images/illustration-sign-up-tablet.svg");
+        border-radius: 2rem;
+        overflow: hidden;
+      }
+    }
+  }
+
+  /* Desktop breakpoint: 1024px+ */
+  @media (min-width: 64rem) {
+    .newsletter {
+      margin-top: 8rem;
+      padding: 1rem;
+      border-radius: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-width: calc(904 / 16 * 1rem);
+      align-items: stretch;
+      overflow: hidden;
+      background: var(--c-white);
+      box-shadow: var(--shadow-1);
+    }
+
+    .newsletter__media {
+      order: 2;
+      background-image: url("/assets/images/illustration-sign-up-desktop.svg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 2rem;
+      overflow: hidden;
+    }
+
+    .newsletter__body {
+      order: 1;
+    }
+  }
+}
