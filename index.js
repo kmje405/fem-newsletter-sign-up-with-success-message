@@ -1,1 +1,1 @@
-console.log("Hello World!")
+newsletter-signup = document.getElementsByClassName('newsletter')

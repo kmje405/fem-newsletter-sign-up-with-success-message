@@ -20,13 +20,13 @@
   </head>
   <body>
     <!-- Sign-up form start -->
-    <main>
+    <!-- <main>
       <section class="newsletter" aria-labelledby="newsletter-title">
         <div class="newsletter__media"></div>
 
         <div class="newsletter__body container">
           <header class="newsletter__header t-preset-2">
-            <h1 id="newsletter-title" class="newsletter__heading">
+            <h1 id="newsletter-title" class="newsletter__heading t-preset-1">
               Stay updated!
             </h1>
             <p class="newsletter__cta">
@@ -71,15 +71,26 @@
           </form>
         </div>
       </section>
-    </main>
+    </main> -->
 
     <!-- Sign-up form end -->
 
     <!-- Success message start -->
-
-    <!-- Thanks for subscribing! A confirmation email has been sent to
-    ash@loremcompany.com. Please open it and click the button inside to confirm
-    your subscription. Dismiss message -->
+    <div class="success__wrapper">
+      <section class="success__container">
+        <img
+          src="/assets/images/icon-success.svg"
+          alt="success checkmark"
+          height="64px"
+        />
+        <h2 class="success__title t-preset-1">Thanks for subscribing!</h2>
+        <p class="success__message">
+          A confirmation email has been sent to ash@loremcompany.com. Please
+          open it and click the button inside to confirm your subscription.
+        </p>
+        <button class="success__dismiss--button">Dismiss message</button>
+      </section>
+    </div>
 
     <!-- Success message end -->
     <script src="index.js"></script>
