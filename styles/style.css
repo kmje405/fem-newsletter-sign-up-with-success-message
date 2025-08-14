@@ -1,5 +1,4 @@
 /* ============== FONTS ============== */
-/* Use ONE family name with proper weights (not separate families) */
 @font-face {
   font-family: "Roboto";
   src: url("/assets/fonts/Roboto-Regular.ttf") format("truetype");
@@ -54,7 +53,6 @@
     --fs-body: var(--fs-16);
     --fs-small: var(--fs-12);
 
-    /* Optional "current" display size (updated via media queries below) */
     --fs-display-current: var(--fs-display-mobile);
 
     /* Radius/shadow tokens */
@@ -299,7 +297,7 @@
   /* ============== RESPONSIVE BREAKPOINTS ============== */
   @layer responsive {
     /* Mobile breakpoint: up to 767px */
-    @media (max-width: 47.9375rem) {
+    @media (max-width: 47.998rem) {
       body {
         align-items: flex-start; /* Align to top instead of center */
       }
