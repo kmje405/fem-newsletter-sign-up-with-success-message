@@ -139,7 +139,9 @@
 
   .form-field__input:focus {
     outline: none;
-    border-color: var(--c-blue-800);
+    border: 2px solid;
+    background: linear-gradient(--gradient-primary) padding-box,
+      var(--gradient-primary) border-box;
   }
 
   .form-field__error {
@@ -194,6 +196,17 @@
     color: var(--c-white);
     background-color: var(--c-blue-800);
     font-weight: 700 !important;
+    cursor: pointer;
+    transition: background 300ms ease-in-out, box-shadow 300ms ease-in-out;
+  }
+
+  .newsletter__button:hover {
+    background: var(--gradient-primary);
+  }
+
+  .newsletter__button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px hsl(15 100% 61% / 0.6);
   }
 
   /* ============== LIST COMPONENTS ============== */
@@ -289,8 +302,17 @@
       margin-top: auto;
     }
 
+    .success__dismiss--button {
+      transition: background 300ms ease-in-out, box-shadow 300ms ease-in-out;
+    }
+
     .success__dismiss--button:hover {
       background: var(--gradient-primary);
+    }
+
+    .success__dismiss--button:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px hsl(15 100% 61% / 0.6);
     }
   }
 
