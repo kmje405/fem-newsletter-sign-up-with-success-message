@@ -81,19 +81,31 @@
     <!-- Sign-up form end -->
 
     <!-- Success message start -->
-    <div class="success__wrapper">
+    <div
+      class="success__wrapper"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="success-title"
+    >
       <section class="success__container">
         <img
           src="/assets/images/icon-success.svg"
           alt="success checkmark"
           height="64px"
         />
-        <h2 class="success__title t-preset-1">Thanks for subscribing!</h2>
+        <h2 id="success-title" class="success__title t-preset-1">
+          Thanks for subscribing!
+        </h2>
         <p class="success__message">
           A confirmation email has been sent to ash@loremcompany.com. Please
           open it and click the button inside to confirm your subscription.
         </p>
-        <button class="success__dismiss--button">Dismiss message</button>
+        <button
+          class="success__dismiss--button"
+          aria-describedby="success-title"
+        >
+          Dismiss message
+        </button>
       </section>
     </div>
 
