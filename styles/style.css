@@ -354,11 +354,15 @@
     @media (min-width: 48rem) and (max-width: 63.9375rem) {
       body {
         background: var(--c-blue-700);
+        align-items: flex-start; /* Allow margin-top to work */
+      }
+
+      main {
+        margin-top: 4.5rem !important;
       }
 
       .newsletter {
         min-width: calc(608 / 16 * 1rem);
-        margin-top: 4.5rem;
         padding: 2rem;
         border-radius: 2rem;
         background: var(--c-white);
